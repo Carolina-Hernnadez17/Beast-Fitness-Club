@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../logo1.jpeg'; 
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import {ProgressBar, Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 const Zumba = () => {
     return (
