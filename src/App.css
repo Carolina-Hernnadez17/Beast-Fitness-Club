@@ -258,7 +258,7 @@ background-color: #f9f9f9;
 
 
 .submit-button {
-  background-color: #8ec5fc;
+  background-color:#52BF04;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -271,12 +271,12 @@ background-color: #f9f9f9;
 }
 
 .submit-button:hover {
-  background-color: #6da8f5;
+  background-color: #52BF04;
   transform: translateY(-3px);
 }
 
 .submit-button:active {
-  background-color: #4a8ed9;
+  background-color: #52BF04;
   transform: translateY(0);
 }
 

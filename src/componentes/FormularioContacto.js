@@ -22,7 +22,7 @@ function ContactForm() {
             <label htmlFor="message" className="form-label">Mensaje</label>
             <textarea className="form-control" id="message" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
           </div>
-          <Button type="submit" className="submit-button">Enviar</Button>
+          <Button type="submit" className="submit-button acerca-de-button">Enviar</Button>
         </form>
       </div>
     </div>
