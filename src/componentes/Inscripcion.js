@@ -1,4 +1,5 @@
 import React from 'react';
+import GymTariffs from './GymTariffs';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
 function Inscripcion() {
@@ -34,6 +35,11 @@ function Inscripcion() {
             </Card>
           </Col>
         </Row>
+
+        <section>
+          <GymTariffs/>
+        </section>
+
       </Container>
     </div>
   );

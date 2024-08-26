@@ -6,11 +6,11 @@ const GymTariffs = () => {
     <Container className="tariffs-container">
       <Row className="text-center">
         <Col>
-          <h1 className="tariffs-title">Nuevas Tarifas Gimnasio 2023</h1>
+          <h1 className="tariffs-title">Nuevas Tarifas </h1>
         </Col>
       </Row>
       <Row>
-        <Col md={6} className="tariffs-col">
+        <Col md={5} className="tariffs-col">
           <Card className="tariff-card">
             <Card.Header className="tariff-header">Planes Adultos</Card.Header>
             <Card.Body>
@@ -25,7 +25,7 @@ const GymTariffs = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={6} className="tariffs-col">
+        <Col md={5} className="tariffs-col">
           <Card className="tariff-card">
             <Card.Header className="tariff-header">Planes Estudiantes</Card.Header>
             <Card.Body>
@@ -51,8 +51,7 @@ const GymTariffs = () => {
           <Card className="tariff-card">
             <Card.Header className="tariff-header">Horario de Gimnasio (Lunes a Viernes)</Card.Header>
             <Card.Body>
-              <p>07:00 a 13:00 HRS.</p>
-              <p>16:00 a 22:00 HRS.</p>
+              <p>07:00 a 22:00 HRS.</p>
             </Card.Body>
           </Card>
         </Col>
