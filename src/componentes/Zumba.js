@@ -87,6 +87,66 @@ const Zumba = () => {
                     </Col>
                 </Row>
 
+                <section className="service-section acerca-de-content">
+                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros Más Activos</h3>
+                    <Row>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Juan Pérez</h4>
+                            <ProgressBar now={75} label="75% Progreso" />
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>María López</h4>
+                            <ProgressBar now={90} label="90% Progreso" />
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Susana Cruz </h4>
+                            <ProgressBar now={50} label="50% Progreso" />
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Jose Lopéz</h4>
+                            <ProgressBar now={70} label="70% Progreso" />
+                            </div>
+                        </Col>
+                        </Row>
+                        <Row>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Josué Aguilar</h4>
+                            <ProgressBar now={75} label="75% Progreso" />
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Gabriel Díaz</h4>
+                            <ProgressBar now={90} label="90% Progreso" />
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Eunice Orellana </h4>
+                            <ProgressBar now={80} label="80% Progreso" />
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                            <div className="progress-section">
+                            <h4>Manuel Peréz</h4>
+                            <ProgressBar now={70} label="70% Progreso" />
+                            </div>
+                        </Col>
+                    </Row>
+                 </section>
+
                 
             </Container>
         </>
