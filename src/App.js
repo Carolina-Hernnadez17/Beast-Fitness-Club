@@ -11,6 +11,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Inscripcion from './componentes/Inscripcion';
 import Zumba from './componentes/Zumba';
 import Login from './componentes/Login';
+import Pilates from './componentes/Pilates';
+import Crossfit from './componentes/Crossfit';
+import Spinning from './componentes/Spinning';
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
             <Route path="/Inscripcion" element={<Inscripcion />} />
             <Route path="/Login" element={<Login />} />
             <Route path='/Zumba' element={<Zumba />} />
+            <Route path='/Pilates' element={<Pilates />} />
+            <Route path='/Crossfit' element={<Crossfit />} />
+            <Route path='/Spinning' element={<Spinning />} />
           </Routes>
         </main>
         
