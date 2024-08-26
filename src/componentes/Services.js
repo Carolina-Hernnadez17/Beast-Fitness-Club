@@ -3,6 +3,7 @@ import logo from '../logo1_nobg.png';
 import { Link } from 'react-router-dom';
 import {  Card, Container, Row, Col, Button } from 'react-bootstrap';
 import Statistic from './Statistic';
+import FAQ from './FAQ.JS';
 
 function Services() {
   return (
@@ -127,7 +128,9 @@ function Services() {
         </Row>
       </section>
 
-      
+      <section>
+        <FAQ />
+      </section>
       
 
       
