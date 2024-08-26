@@ -128,12 +128,6 @@ function Services() {
         </Row>
       </section>
 
-      <section>
-        <FAQ />
-      </section>
-      
-
-      
     </Container>
   );
 }
