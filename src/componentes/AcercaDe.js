@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import logo from '../logo1_nobg.png'; 
+import Noticias from './Noticias';
 
 const clases = [
   
@@ -77,10 +78,13 @@ const AcercaDe = () => {
               ))}
             </Row>
             <Col md={12} className="text-center mt-4">
-            <p className="acerca-de-text">
-              Nuestro equipo está comprometido en hacer de Beast Fitness Club el lugar perfecto para alcanzar tus metas de fitness. Únete a nosotros y sé parte de una comunidad dedicada al bienestar y la salud.
-            </p>
-          </Col>
+              <p className="acerca-de-text">
+                Nuestro equipo está comprometido en hacer de Beast Fitness Club el lugar perfecto para alcanzar tus metas de fitness. Únete a nosotros y sé parte de una comunidad dedicada al bienestar y la salud.
+              </p>
+            </Col>
+          </section>
+          <section>
+              <Noticias/>
           </section>
         
       </div>
