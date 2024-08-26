@@ -745,30 +745,6 @@ h4 {
   animation: fadeIn 1s ease-in-out;
 }
 
-/*Preguntas frecuentes*/
-.faq-container {
-  background-color: #f8f9fa;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-.faq-toggle-button {
-  font-weight: bold;
-  color: #3B7302;
-  text-align: left;
-  width: 100%;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.faq-toggle-button:hover {
-  color: #285202;
-}
-
-.card-body {
-  background-color: #ffffff;
-  border-top: 2px solid #3B7302;
-}
 
 
 
