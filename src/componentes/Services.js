@@ -77,22 +77,28 @@ function Services() {
             </Link>
           </Col>
           <Col md={3}>
-            <div className="class-card">
-              <img src="/img/Pilates_1.jpg" alt="Clase 2" className="class-img" />
-              <div className="class-title">Pilates</div>
-            </div>
+            <Link to="/Pilates">
+              <div className="class-card">
+                <img src="/img/Pilates_1.jpg" alt="Clase 2" className="class-img" />
+                <div className="class-title">Pilates</div>
+              </div>
+            </Link>
           </Col>
           <Col md={3}>
-            <div className="class-card">
-              <img src="/img/Crossfit_1.jpg" alt="Clase 3" className="class-img" />
-              <div className="class-title">Crossfit</div>
-            </div>
+            <Link to="/Crossfit">
+              <div className="class-card">
+                <img src="/img/Crossfit_1.jpg" alt="Clase 3" className="class-img" />
+                <div className="class-title">Crossfit</div>
+              </div>
+            </Link>
           </Col>
           <Col md={3}>
-            <div className="class-card">
-              <img src="/img/Spining_1.jpg" alt="Clase 4" className="class-img" />
-              <div className="class-title">Spinning</div>
-            </div>
+            <Link to= "/Spinning">
+              <div className="class-card">
+                <img src="/img/Spining_1.jpg" alt="Clase 4" className="class-img" />
+                <div className="class-title">Spinning</div>
+              </div>
+            </Link>
           </Col>
         </Row>
       </section>

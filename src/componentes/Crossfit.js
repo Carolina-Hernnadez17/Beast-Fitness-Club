@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo1.jpeg'; 
 import {ProgressBar, Container, Row, Col, Card, Button } from 'react-bootstrap';
 
-const Zumba = () => {
+const Crossfit = () => {
     return (
         <>
             <Row className="mb-5 justify-content-center">
@@ -11,7 +11,7 @@ const Zumba = () => {
                 </Col>
             </Row>
             <Container className="zumba-page my-5">
-                <h1 className="text-center mb-5 zumba-title">Clases Zumba</h1>
+                <h1 className="text-center mb-5 zumba-title">Clases Crossfit</h1>
 
                 <Row className="mb-4">
                     <Col md={5}>
@@ -154,4 +154,4 @@ const Zumba = () => {
     );
 };
 
-export default Zumba;
+export default Crossfit;
