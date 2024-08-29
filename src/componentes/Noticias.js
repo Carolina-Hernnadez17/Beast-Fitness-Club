@@ -7,9 +7,9 @@ const Noticias = () => (
     <Carousel>
       <Carousel.Item>
         <Card className="news-card">
-          <Card.Img variant="top" src="/img/zumba_news.jpg" alt="New Zumba Classes!" />
+          <Card.Img variant="top" src="/img/Gym.jpg" alt="New Zumba Classes!" />
           <Card.Body>
-            <Card.Title>New Zumba Classes!</Card.Title>
+            <Card.Title>Nuevo GYM!</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">August 26, 2024</Card.Subtitle>
             <Card.Text>We are excited to announce new Zumba classes starting this September. Join us for fun and fitness!</Card.Text>
           </Card.Body>
@@ -17,9 +17,9 @@ const Noticias = () => (
       </Carousel.Item>
       <Carousel.Item>
         <Card className="news-card">
-          <Card.Img variant="top" src="/img/gym_renovation.jpg" alt="Gym Renovation Complete" />
+          <Card.Img variant="top" src="/img/Rutinas-N.jpg" alt="Gym Renovation Complete" />
           <Card.Body>
-            <Card.Title>Gym Renovation Complete</Card.Title>
+            <Card.Title>Nuevas Rutinas</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">August 20, 2024</Card.Subtitle>
             <Card.Text>Our gym renovation is now complete. Enjoy the new facilities and equipment!</Card.Text>
           </Card.Body>

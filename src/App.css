@@ -815,7 +815,7 @@ h4 {
 
 /*Noticias*/
 .news-container {
-  max-width: 800px;
+  max-width: 200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -829,13 +829,13 @@ h4 {
   border: none;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .news-card img {
   border-bottom: 1px solid #e0e0e0;
   max-height: 300px;
-  object-fit: cover;
+  object-fit:none;
 }
 
 .news-card .card-body {
@@ -860,7 +860,7 @@ h4 {
 }
 
 .carousel-control-prev, .carousel-control-next {
-  filter: brightness(0) invert(1);
+  filter: brightness(1) invert(1);
 }
 
 .carousel-indicators li {
