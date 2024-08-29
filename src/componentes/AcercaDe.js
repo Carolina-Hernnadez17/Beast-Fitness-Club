@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import logo from '../logo1_nobg.png'; 
-import Noticias from './Noticias';
+
 
 const clases = [
   
@@ -83,9 +83,7 @@ const AcercaDe = () => {
               </p>
             </Col>
           </section>
-          <section>
-              <Noticias/>
-          </section>
+          
         
       </div>
     </Container>

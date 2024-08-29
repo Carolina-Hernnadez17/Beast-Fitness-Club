@@ -3,6 +3,7 @@ import logo from '../logo1_nobg.png';
 import { Link } from 'react-router-dom';
 import {  Card, Container, Row, Col, Button } from 'react-bootstrap';
 import Statistic from './Statistic';
+import Noticias from './Noticias';
 
 
 function Services() {
@@ -132,6 +133,9 @@ function Services() {
             </Card>
           </Col>
         </Row>
+      </section>
+      <section>
+        <Noticias/>
       </section>
 
     </Container>
