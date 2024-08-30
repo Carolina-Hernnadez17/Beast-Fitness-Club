@@ -870,9 +870,26 @@ h4 {
 .carousel-indicators .active {
   background-color: #007bff;
 }
-/*Login*/
 
-/*Contactanos*/
+.custom-progress-bar {
+  background-color: #52BF04; 
+}
+
+.custom-progress-bar .progress-bar {
+  background-color: #52BF04; 
+}
+
+
+.botones-extra {
+  background-color: #52BF04 !important; 
+  border: 1px solid #52BF04 !important; 
+  color: white;
+}
+
+.botones-extra:hover {
+  background-color: #45a005 !important;
+  border-color: #45a005 !important; 
+}
 
 
 

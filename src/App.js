@@ -15,6 +15,11 @@ import Pilates from './componentes/Pilates';
 import Crossfit from './componentes/Crossfit';
 import Spinning from './componentes/Spinning';
 import Contactanos from './componentes/Contactanos';
+import WorkoutPlanner from './componentes/WorkoutPlanner';
+import ProgressTracking from './componentes/ProgressTracking';
+import PersonalizedSuggestions from './componentes/PersonalizedSuggestions';
+import Community from './componentes/Community';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -36,6 +41,10 @@ function App() {
             <Route path='/Crossfit' element={<Crossfit />} />
             <Route path='/Spinning' element={<Spinning />} />
             <Route path= '/Contacatanos' element={<Contactanos/>} />
+            <Route path="/workout-planner" element={<WorkoutPlanner />} />
+            <Route path="/progress-tracking" element={<ProgressTracking />} />
+            <Route path="/personalized-suggestions" element={<PersonalizedSuggestions />} />
+            <Route path="/community" element={<Community />} />
           </Routes>
         </main>
         
