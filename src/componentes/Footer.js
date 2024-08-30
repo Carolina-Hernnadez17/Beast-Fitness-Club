@@ -25,7 +25,7 @@ const Footer = () => {
             <h5>Otros Servicios</h5>
             <ul className="list-unstyled">
               <li><a href="/AcercaDe">Acerca de</a></li>
-              <li><a href="#destinos">Rutinas</a></li>
+              <li><a href="/">Rutinas</a></li>
               <li><a href="/Services">Recetas</a></li>
             </ul>
           </Col>
@@ -35,7 +35,7 @@ const Footer = () => {
               <li><a href="/AcercaDe">Acerca de</a></li>
               <li><a href="/Services">Servicios</a></li>
               <li><a href="/Inscripcion">Inscripciones</a></li>
-              <li><a href="#comentarios">Contactanos</a></li>
+              <li><a href="/Contacatanos">Contactanos</a></li>
             </ul>
           </Col>
           <Col md={3} className="footer-col">
