@@ -128,7 +128,7 @@ function Services() {
                 <Card.Text>
                   Maximiza tu rendimiento con una alimentación adecuada para deportistas.
                 </Card.Text>
-                <Button className="acerca-de-button" href="/PlanDePerdidaDePeso">Vamos</Button>
+                <Button className="acerca-de-button" href="/NutricionDeportiva">Vamos</Button>
               </Card.Body>
             </Card>
           </Col>

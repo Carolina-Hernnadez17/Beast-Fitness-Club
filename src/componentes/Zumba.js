@@ -56,7 +56,10 @@ const Zumba = () => {
                                 <Card.Text>
                                 Únase a nosotros en eventos especiales de Zumba, que incluyen sesiones al aire libre, noches de baile temáticas y eventos de recaudación de fondos para organizaciones benéficas.
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Próximos eventos</Button>
+                                <a href="https://youtu.be/vi8nCWhfCHk?si=Ev2xOGpTKGv6QDHl" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Próximos eventos</Button>
+                                </a>
+                                
                             </Card.Body>
                         </Card>
                     </Col>
@@ -72,7 +75,9 @@ const Zumba = () => {
                                     llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para 
                                     maximizar la quema de calorías y garantizar que te diviertas!
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver rutinas</Button>
+                                <a href="https://youtu.be/DuVcNbSykv4?si=aSTFcBbcItP-_lgy" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -86,7 +91,9 @@ const Zumba = () => {
                                     bloque de cardio de 20-25 minutos con canciones de merengue, salsa, cumbia,
                                     y pop latino. 
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver rutinas</Button>
+                                <a href="https://youtu.be/_t6Qk8Z5jHQ?si=oMj_j2phBssgIOF_" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
