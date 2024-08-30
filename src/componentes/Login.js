@@ -40,7 +40,7 @@ function Login() {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit"  className="btn btn-primary btn-block botones-extra">
           Iniciar Sesión
         </button>
       </form>
