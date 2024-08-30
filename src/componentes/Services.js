@@ -116,7 +116,7 @@ function Services() {
                 <Card.Text >
                   Alcance sus objetivos de pérdida de peso con una dieta equilibrada.
                 </Card.Text>
-                <Button className="acerca-de-button" href="/contact">Vamos</Button>
+                <Button className="acerca-de-button" href="/PlanDePerdidaDePeso">Vamos</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -128,7 +128,7 @@ function Services() {
                 <Card.Text>
                   Maximiza tu rendimiento con una alimentación adecuada para deportistas.
                 </Card.Text>
-                <Button className="acerca-de-button" href="/contact">Vamos</Button>
+                <Button className="acerca-de-button" href="/PlanDePerdidaDePeso">Vamos</Button>
               </Card.Body>
             </Card>
           </Col>

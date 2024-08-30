@@ -19,6 +19,7 @@ import WorkoutPlanner from './componentes/WorkoutPlanner';
 import ProgressTracking from './componentes/ProgressTracking';
 import PersonalizedSuggestions from './componentes/PersonalizedSuggestions';
 import Community from './componentes/Community';
+import PlanDePerdidaDePeso from './componentes/PlanPerdidaDePeso';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/progress-tracking" element={<ProgressTracking />} />
             <Route path="/personalized-suggestions" element={<PersonalizedSuggestions />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/PlanDePerdidaDePeso" element={<PlanDePerdidaDePeso />} />
           </Routes>
         </main>
         
