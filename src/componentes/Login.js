@@ -14,7 +14,7 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h3 className="text-center">Iniciar Sesión</h3>
+        <h3 className="text-center">Iniciar HOLA</h3>
 
         <div className="form-group">
           <label>Email</label>
