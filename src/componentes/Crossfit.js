@@ -16,11 +16,11 @@ const Crossfit = () => {
                 <Row className="mb-4">
                     <Col md={5}>
                         <Card className="mb-4 zumba-card">
-                            <Card.Img variant="top" src="/img/Instructora_Zumba.jpg" alt="Instructor" />
+                            <Card.Img variant="top" src="/img/Instructora_Crossfit.jpg" alt="Instructor" />
                             <Card.Body>
-                                <Card.Title>Instructora: Jane Doe</Card.Title>
+                                <Card.Title>Instructor: Carlos Zepeda</Card.Title>
                                 <Card.Text>
-                                    Jane Doe es una instructora certificada de Zumba con más de 5 años de experiencia.
+                                   Carlos Zepeda es un instructor, que lleva trabajanod con nosotros ya 15 años, y esta sertificado para trabajar en el area Crossfit.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -54,9 +54,9 @@ const Crossfit = () => {
                             <Card.Body>
                                 <Card.Title>Evento Especial</Card.Title>
                                 <Card.Text>
-                                Únase a nosotros en eventos especiales de Zumba, que incluyen sesiones al aire libre, noches de baile temáticas y eventos de recaudación de fondos para organizaciones benéficas.
+                                    ¡Participa en el evento CrossFit extremo! Confronta "Cindy" con 20 minutos AMRAP de pull-ups, push-ups y air squats, seguido por "Fran" con thrusters y pull-ups en el menor tiempo. Luego, prueba tu resistencia con "Murph", "Helen" y "Angie". Finaliza con "Fight Gone Bad", "DT" y "Grace" para una prueba completa de fuerza y potencia. ¡Reta tus límites y demuestra tu habilidad!
                                 </Card.Text>
-                                <Button variant="success">Próximos eventos</Button>
+                                <Button className='acerca-de-button'>Próximos eventos</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -66,43 +66,35 @@ const Crossfit = () => {
                     <Col md={6}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Rutinas</Card.Title>
+                                <Card.Title>Rutina Cindy</Card.Title>
                                 <Card.Text>
-                                    Nuestras rutinas de Zumba incluyen una combinación de movimientos de baile llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para maximizar la quema de calorías y garantizar que te diviertas!
+                                    Es un desafío de 20 minutos AMRAP que consiste en completar tantas rondas 
+                                    como sea posible en ese tiempo. Cada ronda incluye 5 pull-ups, 10 push-ups 
+                                    y 15 air squats, lo que trabaja simultáneamente la resistencia muscular y 
+                                    cardiovascular. 
                                 </Card.Text>
-                                <Button variant="success">Ver todas las rutinas</Button>
+                                <Button className='acerca-de-button'>Ver rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col md={6}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Routines</Card.Title>
+                                <Card.Title>Rutina Grace</Card.Title>
                                 <Card.Text>
-                                    Our Zumba routines include a mix of high-energy dance moves set to upbeat music. Every session is designed to maximize your calorie burn while ensuring you have fun!
+                                    Es un desafío de tiempo que se centra en completar 30 clean and jerks, 
+                                    con un peso de 135 libras para hombres y 95 libras para mujeres, en el 
+                                    menor tiempo posible. Este entrenamiento pone a prueba tanto la potencia 
+                                    como la técnica en el levantamiento olímpico
                                 </Card.Text>
-                                <Button variant="success">View All Routines</Button>
+                                <Button className='acerca-de-button'>Ver rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
 
                 <section className="service-section acerca-de-content">
-                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros Más Activos</h3>
-                    <Row>
-                        <Col md={6}>
-                            <div className="progress-section">
-                            <h4>Juan Pérez</h4>
-                            <ProgressBar now={75} label="75% Progreso" />
-                            </div>
-                        </Col>
-                        <Col md={6}>
-                            <div className="progress-section">
-                            <h4>María López</h4>
-                            <ProgressBar now={90} label="90% Progreso" />
-                            </div>
-                        </Col>
-                    </Row>
+                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros </h3>
                     <Row>
                         <Col md={6}>
                             <div className="progress-section">

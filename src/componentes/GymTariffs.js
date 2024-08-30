@@ -15,12 +15,11 @@ const GymTariffs = () => {
             <Card.Header className="tariff-header">Planes Adultos</Card.Header>
             <Card.Body>
               <ul>
-                <li>Matrícula: <span>$25.000</span></li>
-                <li>Mensual: <span>$58.000</span></li>
-                <li>Mensual Séniors: <span>$35.000</span></li>
-                <li>Trimestral: <span>$130.000</span></li>
-                <li>Semestral: <span>$230.000</span></li>
-                <li>Anual: <span>$430.000</span></li>
+                <li>Matrícula: <span>$10.00</span></li>
+                <li>Mensual: <span>$25.00</span></li>
+                <li>Trimestral: <span>$100.00</span></li>
+                <li>Semestral: <span>$150.00</span></li>
+                <li>Anual: <span>$300.00</span></li>
               </ul>
             </Card.Body>
           </Card>
@@ -30,12 +29,11 @@ const GymTariffs = () => {
             <Card.Header className="tariff-header">Planes Estudiantes</Card.Header>
             <Card.Body>
               <ul>
-                <li>Matrícula: <span>$15.000</span></li>
-                <li>Mensual: <span>$42.000</span></li>
-                <li>Mensual Valle: <span>$32.000</span></li>
-                <li>Trimestral: <span>$110.000</span></li>
-                <li>Semestral: <span>$200.000</span></li>
-                <li>Anual: <span>$350.000</span></li>
+                <li>Matrícula: <span>$10.00</span></li>
+                <li>Mensual: <span>$20.00</span></li>
+                <li>Trimestral: <span>$40.00</span></li>
+                <li>Semestral: <span>$60.00</span></li>
+                <li>Anual: <span>$120.00</span></li>
               </ul>
             </Card.Body>
           </Card>
@@ -43,7 +41,7 @@ const GymTariffs = () => {
       </Row>
       <Row>
         <Col className="text-center">
-          <p className="ticket-price">Ticket Diario: <span>$7.000</span></p>
+          <p className="ticket-price">Ticket Diario: <span>$2.00</span></p>
         </Col>
       </Row>
       <Row className="gym-hours">
@@ -51,7 +49,7 @@ const GymTariffs = () => {
           <Card className="tariff-card">
             <Card.Header className="tariff-header">Horario de Gimnasio (Lunes a Viernes)</Card.Header>
             <Card.Body>
-              <p>07:00 a 22:00 HRS.</p>
+              <p>05:00 a 24:00 HRS.</p>
             </Card.Body>
           </Card>
         </Col>
@@ -59,7 +57,7 @@ const GymTariffs = () => {
           <Card className="tariff-card">
             <Card.Header className="tariff-header">Horario de Gimnasio (Sábado)</Card.Header>
             <Card.Body>
-              <p>09:00 a 14:00 HRS.</p>
+              <p>05:00 a 20:00 HRS.</p>
             </Card.Body>
           </Card>
         </Col>
@@ -70,9 +68,9 @@ const GymTariffs = () => {
             <Card.Header className="tariff-header">Personalizados Alumnos Winfit</Card.Header>
             <Card.Body>
               <ul>
-                <li>8 Sesiones: <span>$90.000</span></li>
-                <li>12 Sesiones: <span>$120.000</span></li>
-                <li>20 Sesiones: <span>$180.000</span></li>
+                <li>8 Sesiones: <span>$64.00</span></li>
+                <li>12 Sesiones: <span>$96.00</span></li>
+                <li>20 Sesiones: <span>$160.00</span></li>
               </ul>
             </Card.Body>
           </Card>
@@ -82,9 +80,9 @@ const GymTariffs = () => {
             <Card.Header className="tariff-header">Personalizados Alumnos Externos</Card.Header>
             <Card.Body>
               <ul>
-                <li>8 Sesiones: <span>$170.000</span></li>
-                <li>12 Sesiones: <span>$200.000</span></li>
-                <li>20 Sesiones: <span>$250.000</span></li>
+                <li>8 Sesiones: <span>$160.00</span></li>
+                <li>12 Sesiones: <span>$180.00</span></li>
+                <li>20 Sesiones: <span>$200.00</span></li>
               </ul>
             </Card.Body>
           </Card>

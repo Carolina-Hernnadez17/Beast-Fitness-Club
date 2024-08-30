@@ -56,7 +56,7 @@ const Zumba = () => {
                                 <Card.Text>
                                 Únase a nosotros en eventos especiales de Zumba, que incluyen sesiones al aire libre, noches de baile temáticas y eventos de recaudación de fondos para organizaciones benéficas.
                                 </Card.Text>
-                                <Button variant="success">Próximos eventos</Button>
+                                <Button className='acerca-de-button'>Próximos eventos</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -68,27 +68,32 @@ const Zumba = () => {
                             <Card.Body>
                                 <Card.Title>Rutinas</Card.Title>
                                 <Card.Text>
-                                    Nuestras rutinas de Zumba incluyen una combinación de movimientos de baile llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para maximizar la quema de calorías y garantizar que te diviertas!
+                                    Nuestras rutinas de Zumba incluyen una combinación de movimientos de baile 
+                                    llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para 
+                                    maximizar la quema de calorías y garantizar que te diviertas!
                                 </Card.Text>
-                                <Button variant="success">Ver todas las rutinas</Button>
+                                <Button className='acerca-de-button'>Ver rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col md={6}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Routines</Card.Title>
+                                <Card.Title>Rutina</Card.Title>
                                 <Card.Text>
-                                    Our Zumba routines include a mix of high-energy dance moves set to upbeat music. Every session is designed to maximize your calorie burn while ensuring you have fun!
+                                    Es de 45 minutos comienza con un calentamiento on movimientos suaves 
+                                    como marchas y estiramientos dinámicos. Luego, sigue un 
+                                    bloque de cardio de 20-25 minutos con canciones de merengue, salsa, cumbia,
+                                    y pop latino. 
                                 </Card.Text>
-                                <Button variant="success">View All Routines</Button>
+                                <Button className='acerca-de-button'>Ver rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
 
                 <section className="service-section acerca-de-content">
-                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros Más Activos</h3>
+                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros </h3>
                     <Row>
                         <Col md={6}>
                             <div className="progress-section">

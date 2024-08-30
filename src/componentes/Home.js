@@ -32,7 +32,7 @@ const Home = () => {
           <Col md={6} className="order-md-2 d-flex align-items-center">
             <div>
               <h2 className="home-page-title">Seguimiento de Progreso</h2>
-              <p className="home-page-text">Registra tu progreso y celebra tus logros a medida que avanzas en tu camino hacia una vida más saludable.</p>
+              <p className="home-page-text">Registra y observa tu progreso a medida que avanzas en tu camino hacia una vida más saludable.</p>
               <Button className="home-page-button" href="/progress-tracking">Ver Progreso</Button>
             </div>
           </Col>

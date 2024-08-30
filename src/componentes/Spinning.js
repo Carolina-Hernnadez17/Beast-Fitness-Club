@@ -16,11 +16,11 @@ const Spinning = () => {
                 <Row className="mb-4">
                     <Col md={5}>
                         <Card className="mb-4 zumba-card">
-                            <Card.Img variant="top" src="/img/Instructora_Zumba.jpg" alt="Instructor" />
+                            <Card.Img variant="top" src="/img/Instructora_Spining.jpg" alt="Instructor" />
                             <Card.Body>
-                                <Card.Title>Instructora: Jane Doe</Card.Title>
+                                <Card.Title>Instructora: Fernanda Caceres</Card.Title>
                                 <Card.Text>
-                                    Jane Doe es una instructora certificada de Zumba con más de 5 años de experiencia.
+                                    Fernanda Caceres es una instructora certificada en Spinning con más de 10 años de experiencia.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -54,9 +54,12 @@ const Spinning = () => {
                             <Card.Body>
                                 <Card.Title>Evento Especial</Card.Title>
                                 <Card.Text>
-                                Únase a nosotros en eventos especiales de Zumba, que incluyen sesiones al aire libre, noches de baile temáticas y eventos de recaudación de fondos para organizaciones benéficas.
+                                    ¡Únete al "Desafío Spinning Power 2024"! Enfrenta 5 etapas intensas: comienza con Intervalos Cortos, 
+                                    sigue con Colinas, luego Resistencia, continúa con Sprint y Resistencia, y finaliza con Cadencia Alta. 
+                                    Cada etapa está diseñada para maximizar tu resistencia y potencia en una experiencia épica de spinning. 
+                                    ¡No te lo pierdas!
                                 </Card.Text>
-                                <Button variant="success">Próximos eventos</Button>
+                                <Button className='acerca-de-button'>Próximos eventos</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -66,11 +69,14 @@ const Spinning = () => {
                     <Col md={6}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Rutinas</Card.Title>
+                                <Card.Title>Rutina</Card.Title>
                                 <Card.Text>
-                                    Nuestras rutinas de Zumba incluyen una combinación de movimientos de baile llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para maximizar la quema de calorías y garantizar que te diviertas!
+                                    Empieza con 10 minutos de calentamiento a ritmo moderado. Luego, 
+                                    realiza 30 minutos de intervalos, alternando 1 minuto de sprint a 
+                                    alta resistencia con 2 minutos de recuperación, repitiendo 10 veces. 
+                                    Termina con 10 minutos de enfriamiento a ritmo lento. 
                                 </Card.Text>
-                                <Button variant="success">Ver todas las rutinas</Button>
+                                <Button className='acerca-de-button'>Ver  rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -79,9 +85,11 @@ const Spinning = () => {
                             <Card.Body>
                                 <Card.Title>Routines</Card.Title>
                                 <Card.Text>
-                                    Our Zumba routines include a mix of high-energy dance moves set to upbeat music. Every session is designed to maximize your calorie burn while ensuring you have fun!
+                                    Comienza con 5 minutos de calentamiento a ritmo moderado. Luego, realiza 
+                                    20 minutos alternando 1 minuto de alta intensidad con 1 minuto de recuperación , 
+                                    repitiendo el ciclo 10 veces. Finaliza con 5 minutos de enfriamiento a ritmo lento. 
                                 </Card.Text>
-                                <Button variant="success">View All Routines</Button>
+                                <Button className='acerca-de-button'>Ver rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -112,7 +120,7 @@ const Spinning = () => {
                         </Col>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Jose Lopéz</h4>
+                            <h4>Fernanda Lopéz</h4>
                             <ProgressBar now={70} label="70% Progreso" />
                             </div>
                         </Col>
@@ -126,7 +134,7 @@ const Spinning = () => {
                         </Col>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Gabriel Díaz</h4>
+                            <h4>Santiago Díaz</h4>
                             <ProgressBar now={90} label="90% Progreso" />
                             </div>
                         </Col>

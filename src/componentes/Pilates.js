@@ -16,11 +16,11 @@ const Pilates = () => {
                 <Row className="mb-4">
                     <Col md={5}>
                         <Card className="mb-4 zumba-card">
-                            <Card.Img variant="top" src="/img/Instructora_Zumba.jpg" alt="Instructor" />
+                            <Card.Img variant="top" src="/img/Pilates-Class.jpeg" alt="Instructor" />
                             <Card.Body>
-                                <Card.Title>Instructora: Jane Doe</Card.Title>
+                                <Card.Title>Instructora: Karla Díaz</Card.Title>
                                 <Card.Text>
-                                    Jane Doe es una instructora certificada de Zumba con más de 5 años de experiencia.
+                                    Karla Díaz es una instructora certificada para dar seciones de pilates tiene 10 años de experiencia.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -52,11 +52,16 @@ const Pilates = () => {
                     <Col md={12}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Evento Especial</Card.Title>
+                                <Card.Title>Pilates al Amanecer</Card.Title>
                                 <Card.Text>
-                                Únase a nosotros en eventos especiales de Zumba, que incluyen sesiones al aire libre, noches de baile temáticas y eventos de recaudación de fondos para organizaciones benéficas.
+                                    Te esperamos en el parque local, con una duración de 1 hora. 
+                                    Inicia con una breve bienvenida, seguida de 45 minutos de 
+                                    Pilates, y concluye con 10 minutos de estiramientos. 
+                                    Promociona el evento en redes sociales, ofreciendo descuentos 
+                                    por traer un amigo, y entrega un pequeño kit de bienvenida 
+                                    con agua y una toalla.
                                 </Card.Text>
-                                <Button variant="success">Próximos eventos</Button>
+                                <Button className='acerca-de-button'>Próximos eventos</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -66,11 +71,16 @@ const Pilates = () => {
                     <Col md={6}>
                         <Card className="mb-4 zumba-card">
                             <Card.Body>
-                                <Card.Title>Rutinas</Card.Title>
+                                <Card.Title>Rutina para el Core</Card.Title>
                                 <Card.Text>
-                                    Nuestras rutinas de Zumba incluyen una combinación de movimientos de baile llenos de energía al ritmo de música alegre. ¡Cada sesión está diseñada para maximizar la quema de calorías y garantizar que te diviertas!
+                                    Esta rutina fortalece los músculos del abdomen y 
+                                    la espalda baja. Comienza con un calentamiento suave, 
+                                    seguido del ejercicio "Hundred" para activar el core. 
+                                    Luego, realiza un "Roll-up" para estirar la columna y 
+                                    trabaja la plancha para fortalecer los músculos profundos 
+                                    del abdomen. Termina con estiramientos suaves.
                                 </Card.Text>
-                                <Button variant="success">Ver todas las rutinas</Button>
+                                <Button className='acerca-de-button'>Ver todas las rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -79,20 +89,25 @@ const Pilates = () => {
                             <Card.Body>
                                 <Card.Title>Routines</Card.Title>
                                 <Card.Text>
-                                    Our Zumba routines include a mix of high-energy dance moves set to upbeat music. Every session is designed to maximize your calorie burn while ensuring you have fun!
+                                    Esta rutina se enfoca en tonificar las piernas y glúteos. 
+                                    Empieza con un calentamiento ligero, seguido de ejercicios como 
+                                    "Side-Lying Leg Lift" para trabajar los músculos laterales, 
+                                    "Bridges" para fortalecer los glúteos, y "Side Kicks" para mejorar 
+                                    la estabilidad de la cadera. Finaliza con estiramientos para relajar 
+                                    los músculos trabajados.
                                 </Card.Text>
-                                <Button variant="success">View All Routines</Button>
+                                <Button className='acerca-de-button'>Ver Rutinas</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
 
                 <section className="service-section acerca-de-content">
-                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros Más Activos</h3>
+                    <h3 className="text-center my-5 color-text">Avances de Nuestros Miembros</h3>
                     <Row>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Juan Pérez</h4>
+                            <h4>Juana Cruz</h4>
                             <ProgressBar now={75} label="75% Progreso" />
                             </div>
                         </Col>
@@ -106,7 +121,7 @@ const Pilates = () => {
                     <Row>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Susana Cruz </h4>
+                            <h4>Alberto Zepeda </h4>
                             <ProgressBar now={50} label="50% Progreso" />
                             </div>
                         </Col>
@@ -120,31 +135,18 @@ const Pilates = () => {
                         <Row>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Josué Aguilar</h4>
+                            <h4>Josué Sánchez</h4>
                             <ProgressBar now={75} label="75% Progreso" />
                             </div>
                         </Col>
                         <Col md={6}>
                             <div className="progress-section">
-                            <h4>Gabriel Díaz</h4>
+                            <h4>Susana Díaz</h4>
                             <ProgressBar now={90} label="90% Progreso" />
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col md={6}>
-                            <div className="progress-section">
-                            <h4>Eunice Orellana </h4>
-                            <ProgressBar now={80} label="80% Progreso" />
-                            </div>
-                        </Col>
-                        <Col md={6}>
-                            <div className="progress-section">
-                            <h4>Manuel Peréz</h4>
-                            <ProgressBar now={70} label="70% Progreso" />
-                            </div>
-                        </Col>
-                    </Row>
+                   
                  </section>
 
                 
