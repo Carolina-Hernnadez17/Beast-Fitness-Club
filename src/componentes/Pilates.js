@@ -61,7 +61,9 @@ const Pilates = () => {
                                     por traer un amigo, y entrega un pequeño kit de bienvenida 
                                     con agua y una toalla.
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Próximos eventos</Button>
+                                <a href="https://youtu.be/rTmgtMh8NgA?si=6jKKNZgUcJZtoHvx" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Proximos eventos</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -80,7 +82,9 @@ const Pilates = () => {
                                     trabaja la plancha para fortalecer los músculos profundos 
                                     del abdomen. Termina con estiramientos suaves.
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver todas las rutinas</Button>
+                                <a href="https://youtu.be/U_b4jsAK644?si=wC5F1Fl7DCmV1g_L" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -96,7 +100,9 @@ const Pilates = () => {
                                     la estabilidad de la cadera. Finaliza con estiramientos para relajar 
                                     los músculos trabajados.
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver Rutinas</Button>
+                                <a href="https://youtu.be/qTxhG1CyUPs?si=UWDF3mPeoiS_qEIF" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>

@@ -59,7 +59,9 @@ const Spinning = () => {
                                     Cada etapa está diseñada para maximizar tu resistencia y potencia en una experiencia épica de spinning. 
                                     ¡No te lo pierdas!
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Próximos eventos</Button>
+                                <a href="https://youtu.be/ofN2RNPWn54?si=clasZMf4A3jXiIG-" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Proximos eventos</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -76,7 +78,9 @@ const Spinning = () => {
                                     alta resistencia con 2 minutos de recuperación, repitiendo 10 veces. 
                                     Termina con 10 minutos de enfriamiento a ritmo lento. 
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver  rutinas</Button>
+                                <a href="https://youtu.be/lGxf0krJO5o?si=NqdYQg9H70t0Fwjw" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -89,7 +93,9 @@ const Spinning = () => {
                                     20 minutos alternando 1 minuto de alta intensidad con 1 minuto de recuperación , 
                                     repitiendo el ciclo 10 veces. Finaliza con 5 minutos de enfriamiento a ritmo lento. 
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver rutinas</Button>
+                                <a href="https://youtu.be/MRP7UlO1s10?si=_Zy-IkkwxmANYpbe" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>

@@ -56,7 +56,9 @@ const Crossfit = () => {
                                 <Card.Text>
                                     ¡Participa en el evento CrossFit extremo! Confronta "Cindy" con 20 minutos AMRAP de pull-ups, push-ups y air squats, seguido por "Fran" con thrusters y pull-ups en el menor tiempo. Luego, prueba tu resistencia con "Murph", "Helen" y "Angie". Finaliza con "Fight Gone Bad", "DT" y "Grace" para una prueba completa de fuerza y potencia. ¡Reta tus límites y demuestra tu habilidad!
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Próximos eventos</Button>
+                                <a href="https://youtu.be/zJ9DeCkszc4?si=UClHymxKTNDDpsYg" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Proximos eventos</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -73,7 +75,9 @@ const Crossfit = () => {
                                     y 15 air squats, lo que trabaja simultáneamente la resistencia muscular y 
                                     cardiovascular. 
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver rutinas</Button>
+                                <a href="https://youtu.be/sUhQywmA1ds?si=oLyuk6C13qmaAMaA" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -87,7 +91,9 @@ const Crossfit = () => {
                                     menor tiempo posible. Este entrenamiento pone a prueba tanto la potencia 
                                     como la técnica en el levantamiento olímpico
                                 </Card.Text>
-                                <Button className='acerca-de-button'>Ver rutinas</Button>
+                                <a href="https://youtu.be/r237n4VpbfE?si=2_y-HeU3cmIjUtAi" target="_blank" rel="noopener noreferrer">
+                                    <Button className='acerca-de-button'>Ver rutinas</Button>
+                                </a>
                             </Card.Body>
                         </Card>
                     </Col>

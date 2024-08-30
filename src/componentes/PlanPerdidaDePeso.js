@@ -5,13 +5,14 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 const PlanDePerdidaDePeso = () => {
   return (
     <>
-      <Row className="mb-5 justify-content-center">
+      
+      <Container className="plan-container py-5">
+        <h2 className="text-center section-title mb-4">Plan de Pérdida de Peso</h2>
+        <Row className="mb-5 justify-content-center">
         <Col md={12} className="text-center">
           <img src={logo} className="img-fluid mb-3" alt="logo" style={{ maxWidth: '100%', width: '550px' }} />
         </Col>
       </Row>
-      <Container className="plan-container py-5">
-        <h2 className="text-center mb-4">Plan de Pérdida de Peso</h2>
         
         <Row className="mb-4">
           <Col md={12} lg={6}>
