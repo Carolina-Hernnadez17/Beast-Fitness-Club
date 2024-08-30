@@ -14,6 +14,7 @@ import Login from './componentes/Login';
 import Pilates from './componentes/Pilates';
 import Crossfit from './componentes/Crossfit';
 import Spinning from './componentes/Spinning';
+import Contactanos from './componentes/Contactanos';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path='/Pilates' element={<Pilates />} />
             <Route path='/Crossfit' element={<Crossfit />} />
             <Route path='/Spinning' element={<Spinning />} />
+            <Route path= '/Contacatanos' element={<Contactanos/>} />
           </Routes>
         </main>
         
