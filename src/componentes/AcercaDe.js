@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import logo from '../logo1_nobg.png'; 
 
 
@@ -28,9 +27,8 @@ const AcercaDe = () => {
             <p className="acerca-de-text">
               En un mundo donde las opciones de fitness pueden ser abrumadoras y a menudo impersonales, Beast Fitness Club se destacó por su enfoque personalizado. Cada miembro recibe atención individualizada, rutinas adaptadas a sus metas y un apoyo constante para mantener la motivación y el progreso.
             </p>
-            <Link to="/Contactanos">
-              <Button className="acerca-de-button" href="/Contactanos">Contáctanos</Button>
-            </Link>
+            <Button className="acerca-de-button" href="/Contacatanos">Contáctanos</Button>
+          
             
           </Col>
         </Row>
