@@ -27,7 +27,7 @@ const AcercaDe = () => {
             <p className="acerca-de-text">
               En un mundo donde las opciones de fitness pueden ser abrumadoras y a menudo impersonales, Beast Fitness Club se destacó por su enfoque personalizado. Cada miembro recibe atención individualizada, rutinas adaptadas a sus metas y un apoyo constante para mantener la motivación y el progreso.
             </p>
-            <Button className="acerca-de-button" href="/contact">Contáctanos</Button>
+            <Button className="acerca-de-button" href="/Contactanos">Contáctanos</Button>
           </Col>
         </Row>
         <Row className="acerca-de-section py-5">
