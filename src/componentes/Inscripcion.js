@@ -23,9 +23,13 @@ function Inscripcion() {
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Ingresa tu email" />
                   </Form.Group>
+                  <Form.Group controlId="forContraseña" className="mt-3">
+                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Control type="password" placeholder="Ingresa tu contraseña" />
+                  </Form.Group>
                   <Form.Group controlId="formTelefono" className="mt-3">
                     <Form.Label>Teléfono</Form.Label>
-                    <Form.Control type="tel" placeholder="Ingresa tu número de teléfono" />
+                    <Form.Control type="number" placeholder="Ingresa tu número de teléfono" />
                   </Form.Group>
                   <Button  type="submit" className="inscripcion-button mt-4 login-button">
                     Inscribirme
