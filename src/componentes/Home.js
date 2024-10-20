@@ -22,6 +22,7 @@ const Home = () => {
               <h2 className="home-page-title">Planificación de Rutinas</h2>
               <p className="home-page-text">Desarrolla una rutina de ejercicios personalizada para alcanzar tus objetivos de fitness. ¡Mantente motivado y en forma!</p>
               <Button className="home-page-button" href="/workout-planner">Comenzar</Button>
+              
             </div>
           </Col>
           <Col md={6}>
