@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GymTariffs from './GymTariffs';
 import { Container, Row, Col, Form, Button, Card, Modal, InputGroup } from 'react-bootstrap';
+import emailjs from 'emailjs-com'; // Importar EmailJS
 
 function Inscripcion() {
   const [nombre, setNombre] = useState('');
@@ -26,7 +27,6 @@ function Inscripcion() {
   const isPhoneValid = (phone) => /^\d{8}$/.test(phone);
   const isPasswordValid = (password) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
 
-
   const isFormValid = () => {
     return nombre && isEmailValid(email) && isPhoneValid(telefono) && isPasswordValid(password);
   };
@@ -45,8 +45,26 @@ function Inscripcion() {
     } else {
       setErrorMessage('');
       alert('¡Gracias por suscribirte a Beast Fitness Club!');
-      handleClose(); // Cerrar modal
+      enviarFactura();  
+      handleClose(); 
     }
+  };
+
+  // Enviar factura al correo del usuario usando EmailJS
+  const enviarFactura = () => {
+    const templateParams = {
+      to_name: nombre,  
+      to_email: email, 
+      message: 'Gracias por tu pago. El monto total es $25.00. ¡Disfruta de tu suscripción a Beast Fitness Club!',
+    };
+
+    emailjs.send('service_c9iie5k', 'template_sip1xiu', templateParams, 'aMNjI0st6uG0-OaSv')
+      .then((response) => {
+        console.log('Factura enviada correctamente:', response.status, response.text);
+      })
+      .catch((error) => {
+        console.log('Error al enviar la factura:', error);
+      });
   };
 
   const resetForm = () => {
@@ -96,13 +114,14 @@ function Inscripcion() {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                <Form.Group controlId="formTelefono" className="mt-3">
-                  <Form.Label>Teléfono</Form.Label>
-                  <InputGroup>
-                    <InputGroup.Text>
-                      <Form.Select value={countryCode} onChange={(e) => setCountryCode(e.target.value)}>
-                        <option value="+1">+1 (Estados Unidos/Canadá)</option>
-                        <option value="+52">+52 (México)</option>
+                  <Form.Group controlId="formTelefono" className="mt-3">
+                    <Form.Label>Teléfono</Form.Label>
+                    <InputGroup>
+                      <InputGroup.Text>
+                        <Form.Select value={countryCode} onChange={(e) => setCountryCode(e.target.value)}>
+                          {/* Opciones de código de país */}
+                          <option value="+1">+1 (Estados Unidos/Canadá)</option>
+                          <option value="+52">+52 (México)</option>
                         <option value="+44">+44 (Reino Unido)</option>
                         <option value="+34">+34 (España)</option>
                         <option value="+502">+502 (Guatemala)</option>
@@ -123,22 +142,20 @@ function Inscripcion() {
                         <option value="+86">+86 (China)</option>
                         <option value="+82">+82 (Corea del Sur)</option>
                         <option value="+7">+7 (Rusia)</option>
-                        
-                      </Form.Select>
-                    </InputGroup.Text>
-                    <Form.Control
-                      type="text"
-                      placeholder="Ingresa tu número de teléfono"
-                      value={telefono}
-                      onChange={(e) => setTelefono(e.target.value.replace(/\s/g, ''))}
-                      isInvalid={telefono && !isPhoneValid(telefono)}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      El número de teléfono debe tener exactamente 8 dígitos.
-                    </Form.Control.Feedback>
-                  </InputGroup>
-                </Form.Group>
-
+                        </Form.Select>
+                      </InputGroup.Text>
+                      <Form.Control
+                        type="text"
+                        placeholder="Ingresa tu número de teléfono"
+                        value={telefono}
+                        onChange={(e) => setTelefono(e.target.value.replace(/\s/g, ''))}
+                        isInvalid={telefono && !isPhoneValid(telefono)}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        El número de teléfono debe tener exactamente 8 dígitos.
+                      </Form.Control.Feedback>
+                    </InputGroup>
+                  </Form.Group>
 
                   <Form.Group controlId="formContraseña" className="mt-3">
                     <Form.Label>Contraseña</Form.Label>
@@ -182,7 +199,6 @@ function Inscripcion() {
             <Modal.Title>Pago de la suscripción</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {/* Aquí agregamos el precio debajo del título */}
             <p className="text-center fs-5">$25.00</p> 
             <Form onSubmit={handlePayment}>
               <Form.Group controlId="formCardNumber">
@@ -217,17 +233,16 @@ function Inscripcion() {
                 />
               </Form.Group>
               {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
-              <Button type="submit" className="mt-4">
-                Realizar Pago
+              <Button type="submit" className="mt-4 w-100">
+                Confirmar Pago
               </Button>
             </Form>
           </Modal.Body>
         </Modal>
-
-
       </Container>
     </div>
   );
 }
 
 export default Inscripcion;
+
