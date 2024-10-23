@@ -96,7 +96,7 @@ function Inscripcion() {
                       type="text"
                       placeholder="Ingresa tu nombre completo"
                       value={nombre}
-                      onChange={(e) => setNombre(e.target.value.replace(/\s/g, ''))}
+                      onChange={(e) => setNombre(e.target.value)}
                     />
                   </Form.Group>
 
