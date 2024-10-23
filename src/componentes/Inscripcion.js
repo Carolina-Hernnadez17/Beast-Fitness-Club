@@ -1,44 +1,34 @@
 import React, { useState } from 'react';
 import GymTariffs from './GymTariffs';
-import { Container, Row, Col, Form, Button, Card, Modal } from 'react-bootstrap';
-import emailjs from 'emailjs-com';
+import { Container, Row, Col, Form, Button, Card, Modal, InputGroup } from 'react-bootstrap';
 
 function Inscripcion() {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [telefono, setTelefono] = useState('');
+  const [countryCode, setCountryCode] = useState('+1'); // Selector de código de país
+  const [showPassword, setShowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [cardNumber, setCardNumber] = useState('');
   const [cardDate, setCardDate] = useState('');
   const [cvc, setCVC] = useState('');
-  const [paymentEmail, setPaymentEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
-
-  const isFormValid = () => {
-    return nombre && email && password && telefono;
+  const handleClose = () => {
+    setShowModal(false);
+    resetForm(); // Limpiar el formulario
   };
 
-  const sendEmail = () => {
-    const templateParams = {
-      user_name: nombre,
-      user_email: paymentEmail, // Utilizamos el correo del campo de pago
-      message: 'Gracias por suscribirte a Beast Fitness Club. Bienvenido/a.',
-    };
+  // Validaciones
+  const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isPhoneValid = (phone) => /^\d{8}$/.test(phone);
+  const isPasswordValid = (password) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
 
-    // Asegúrate de configurar tus IDs de EmailJS correctamente
-    emailjs.send('service_c9iie5k', 'template_w5ddnt4', templateParams, 'aMNjI0st6uG0-OaSv')
-      .then((response) => {
-        console.log('Correo enviado exitosamente:', response.status, response.text);
-        alert(`Correo de confirmación enviado a ${paymentEmail}`);
-      })
-      .catch((error) => {
-        console.error('Error al enviar el correo:', error);
-        setErrorMessage('Hubo un error al enviar el correo de confirmación.');
-      });
+
+  const isFormValid = () => {
+    return nombre && isEmailValid(email) && isPhoneValid(telefono) && isPasswordValid(password);
   };
 
   const handlePayment = (e) => {
@@ -46,21 +36,28 @@ function Inscripcion() {
     const currentDate = new Date();
     const [year, month] = cardDate.split('-');
 
-    // Validaciones del formulario
     if (cardNumber.length !== 16) {
       setErrorMessage('El número de tarjeta debe ser de 16 dígitos.');
-    } else if (new Date(year, month - 1) <= currentDate) {  // Ajuste del mes
+    } else if (new Date(year, month - 1) <= currentDate) {
       setErrorMessage('La fecha de vencimiento de la tarjeta es inválida.');
     } else if (cvc.length !== 3) {
       setErrorMessage('El CVC debe tener 3 dígitos.');
-    } else if (!paymentEmail) {
-      setErrorMessage('Debes ingresar un correo para la confirmación de pago.');
     } else {
       setErrorMessage('');
-      sendEmail();  // Enviamos el correo de confirmación al correo ingresado
       alert('¡Gracias por suscribirte a Beast Fitness Club!');
-      handleClose();  // Cerrar modal después del pago
+      handleClose(); // Cerrar modal
     }
+  };
+
+  const resetForm = () => {
+    setNombre('');
+    setEmail('');
+    setPassword('');
+    setTelefono('');
+    setCardNumber('');
+    setCardDate('');
+    setCVC('');
+    setErrorMessage('');
   };
 
   return (
@@ -72,9 +69,7 @@ function Inscripcion() {
               <Card.Body>
                 <h1 className="inscripcion-title">Únete a Beast Fitness Club</h1>
                 <p className="inscripcion-description">
-                  Nuestra empresa es reconocida por su compromiso para que nuestros clientes se sientan cómodos y
-                  disfruten de su día a día con sus rutinas y alimentación. ¡Te damos la oportunidad de disfrutar cada
-                  momento con nosotros!
+                  Nuestra empresa es reconocida por su compromiso para que nuestros clientes se sientan cómodos y disfruten de su día a día con sus rutinas y alimentación. ¡Te damos la oportunidad de disfrutar cada momento con nosotros!
                 </p>
                 <Form className="inscripcion-form mt-4">
                   <Form.Group controlId="formNombre">
@@ -83,36 +78,87 @@ function Inscripcion() {
                       type="text"
                       placeholder="Ingresa tu nombre completo"
                       value={nombre}
-                      onChange={(e) => setNombre(e.target.value)}
+                      onChange={(e) => setNombre(e.target.value.replace(/\s/g, ''))}
                     />
                   </Form.Group>
+
                   <Form.Group controlId="formEmail" className="mt-3">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                       type="email"
                       placeholder="Ingresa tu email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value.replace(/\s/g, ''))}
+                      isInvalid={email && !isEmailValid(email)}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      Ingresa un correo válido que contenga "@" y un dominio válido.
+                    </Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group controlId="forContraseña" className="mt-3">
-                    <Form.Label>Contraseña</Form.Label>
+
+                <Form.Group controlId="formTelefono" className="mt-3">
+                  <Form.Label>Teléfono</Form.Label>
+                  <InputGroup>
+                    <InputGroup.Text>
+                      <Form.Select value={countryCode} onChange={(e) => setCountryCode(e.target.value)}>
+                        <option value="+1">+1 (Estados Unidos/Canadá)</option>
+                        <option value="+52">+52 (México)</option>
+                        <option value="+44">+44 (Reino Unido)</option>
+                        <option value="+34">+34 (España)</option>
+                        <option value="+502">+502 (Guatemala)</option>
+                        <option value="+503">+503 (El Salvador)</option>
+                        <option value="+54">+54 (Argentina)</option>
+                        <option value="+55">+55 (Brasil)</option>
+                        <option value="+57">+57 (Colombia)</option>
+                        <option value="+56">+56 (Chile)</option>
+                        <option value="+51">+51 (Perú)</option>
+                        <option value="+58">+58 (Venezuela)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+81">+81 (Japón)</option>
+                        <option value="+61">+61 (Australia)</option>
+                        <option value="+64">+64 (Nueva Zelanda)</option>
+                        <option value="+33">+33 (Francia)</option>
+                        <option value="+49">+49 (Alemania)</option>
+                        <option value="+39">+39 (Italia)</option>
+                        <option value="+86">+86 (China)</option>
+                        <option value="+82">+82 (Corea del Sur)</option>
+                        <option value="+7">+7 (Rusia)</option>
+                        
+                      </Form.Select>
+                    </InputGroup.Text>
                     <Form.Control
-                      type="password"
-                      placeholder="Ingresa tu contraseña"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId="formTelefono" className="mt-3">
-                    <Form.Label>Teléfono</Form.Label>
-                    <Form.Control
-                      type="number"
+                      type="text"
                       placeholder="Ingresa tu número de teléfono"
                       value={telefono}
-                      onChange={(e) => setTelefono(e.target.value)}
+                      onChange={(e) => setTelefono(e.target.value.replace(/\s/g, ''))}
+                      isInvalid={telefono && !isPhoneValid(telefono)}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      El número de teléfono debe tener exactamente 8 dígitos.
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+
+
+                  <Form.Group controlId="formContraseña" className="mt-3">
+                    <Form.Label>Contraseña</Form.Label>
+                    <InputGroup>
+                      <Form.Control
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Ingresa tu contraseña"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value.replace(/\s/g, ''))}
+                        isInvalid={password && !isPasswordValid(password)}
+                      />
+                      <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                        {showPassword ? 'Ocultar' : 'Mostrar'}
+                      </Button>
+                      <Form.Control.Feedback type="invalid">
+                        La contraseña debe tener al menos 8 caracteres, incluir una letra, un número y un carácter especial.
+                      </Form.Control.Feedback>
+                    </InputGroup>
                   </Form.Group>
+
                   <Button
                     type="button"
                     className="inscripcion-button mt-4"
@@ -136,6 +182,8 @@ function Inscripcion() {
             <Modal.Title>Pago de la suscripción</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            {/* Aquí agregamos el precio debajo del título */}
+            <p className="text-center fs-5">$25.00</p> 
             <Form onSubmit={handlePayment}>
               <Form.Group controlId="formCardNumber">
                 <Form.Label>Número de Tarjeta</Form.Label>
@@ -168,16 +216,6 @@ function Inscripcion() {
                   required
                 />
               </Form.Group>
-              <Form.Group controlId="formPaymentEmail" className="mt-3">
-                <Form.Label>Email para confirmación de pago</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Ingresa tu email para el recibo"
-                  value={paymentEmail}
-                  onChange={(e) => setPaymentEmail(e.target.value)}
-                  required
-                />
-              </Form.Group>
               {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
               <Button type="submit" className="mt-4">
                 Realizar Pago
@@ -185,6 +223,8 @@ function Inscripcion() {
             </Form>
           </Modal.Body>
         </Modal>
+
+
       </Container>
     </div>
   );
