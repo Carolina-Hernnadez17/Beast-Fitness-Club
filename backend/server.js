@@ -1,66 +1,92 @@
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const sql = require('mssql');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 
-// Configura CORS
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 const config = {
-    server: 'CarolinaZepeda', 
-    database: 'Beast',
-    user: 'Admin',       
-    password: '123',    
-    options: {
-      encrypt: false,    
-      trustServerCertificate: true, 
-    }
+  server: 'CarolinaZepeda', 
+  database: 'Beast',
+  user: 'Admin',       
+  password: '123',    
+  options: {
+    encrypt: false,    
+    trustServerCertificate: true, 
+  }
 };
-  
-app.post('/inscripcion', async (req, res) => {
-    const { nombre, email, telefono, password } = req.body;
 
-    try {
-        const pool = await sql.connect(config);
-        await pool.request()
-            .input('Nombre', sql.VarChar, nombre)
-            .input('Email', sql.VarChar, email)
-            .input('Telefono', sql.VarChar, telefono)
-            .input('PasswordU', sql.VarChar, password) // No olvides encriptar la contraseña en producción
-            .query('INSERT INTO Users (Nombre, Email, Telefono, PasswordU) VALUES (@Nombre, @Email, @Telefono, @PasswordU)');
-        res.status(201).send('Usuario registrado');
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error en la inscripción');
-    }
-});
 
-// Endpoint para el login
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-  
-    try {
-      const pool = await sql.connect(config);
-      const result = await pool.request()
-        .input('Email', sql.VarChar, email)
-        .input('PasswordU', sql.VarChar, password)
-        .query('SELECT * FROM Users WHERE Email = @Email AND PasswordU = @PasswordU');
-  
-      if (result.recordset.length > 0) {
-        res.status(200).send({ message: 'Login exitoso' });
-      } else {
-        res.status(401).send('Credenciales inválidas');
+sql.connect(config)
+  .then(pool => {
+    console.log('Conectado a SQL Server');
+
+    // Rutas
+    app.get('/posts', async (req, res) => {
+      try {
+        const result = await pool.request().query('SELECT * FROM Posts');
+        res.json(result.recordset);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Error en la consulta');
       }
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Error en el login');
-    }
-});
+    });
 
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
-});
+    app.post('/posts', async (req, res) => {
+      const { text, user } = req.body;
+      try {
+        const result = await pool.request()
+          .input('Text', sql.NVarChar, text)
+          .input('User', sql.NVarChar, user)
+          .query('INSERT INTO Posts (Text, User) OUTPUT INSERTED.* VALUES (@Text, @User)');
+        res.json(result.recordset[0]);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Error en la inserción');
+      }
+    });
+
+    app.put('/posts/:id/like', async (req, res) => {
+      const postId = req.params.id;
+      try {
+        const result = await pool.request()
+          .input('PostID', sql.Int, postId)
+          .query('UPDATE Posts SET Likes = Likes + 1 WHERE PostID = @PostID; SELECT * FROM Posts WHERE PostID = @PostID');
+        res.json(result.recordset[0]);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar like');
+      }
+    });
+
+    app.post('/posts/:id/comments', async (req, res) => {
+      const postId = req.params.id;
+      const { text, user } = req.body;
+      try {
+        const result = await pool.request()
+          .input('PostID', sql.Int, postId)
+          .input('Text', sql.NVarChar, text)
+          .input('User', sql.NVarChar, user)
+          .query('INSERT INTO Comments (PostID, Text, User) OUTPUT INSERTED.* VALUES (@PostID, @Text, @User)');
+        res.json(result.recordset[0]);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Error en la inserción de comentario');
+      }
+    });
+
+    // Iniciar servidor
+    app.listen(PORT, () => {
+      console.log(`Servidor en ejecución en http://localhost:${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.error('Error de conexión:', err);
+  });
+

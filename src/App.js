@@ -22,23 +22,19 @@ import PlanDePerdidaDePeso from './componentes/PlanPerdidaDePeso';
 import NutricionDeportiva from './componentes/NutricionDeportiva';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario está logueado
-  const [userEmail, setUserEmail] = useState(''); // Estado para guardar el correo del usuario
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <Header 
-            isLoggedIn={isLoggedIn} 
-            setIsLoggedIn={setIsLoggedIn} 
-            userEmail={userEmail} 
-          />
+          <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userEmail={userEmail} />
         </header>
         
         <main className="container my-4">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
             <Route path="/AcercaDe" element={<AcercaDe />} />
             <Route path="/Services" element={<Services />} />
             <Route path="/Inscripcion" element={<Inscripcion />} />
