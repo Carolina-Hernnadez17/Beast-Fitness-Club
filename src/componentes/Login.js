@@ -25,6 +25,8 @@ function Login({ setIsLoggedIn, setUserEmail, setUserId }) {
       console.log('Datos del usuario:', data);
       setIsLoggedIn(true); // Establece el estado de autenticación como true
       setUserEmail(email); // Guardar el correo del usuario
+      localStorage.setItem('userEmail', email); // Guarda el email en localStorage
+      console.log('Email:', email);
       setUserId(data.userId); // Guarda el ID del usuario
       localStorage.setItem('userId', data.userId); // Guarda el ID en localStorage
       navigate('/'); // Redirige a la página de inicio

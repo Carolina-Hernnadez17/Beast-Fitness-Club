@@ -35,13 +35,17 @@ const PrivateRoute = ({ children }) => {
 function App() {
   const [userId, setUserId] = useState(localStorage.getItem('userId')); // Inicializa el estado con userId de localStorage
   const [isLoggedIn, setIsLoggedIn] = useState(!!userId);
-  const [userEmail, setUserEmail] = useState('');
+  const [userEmail, setUserEmail] = useState(localStorage.getItem('userEmail') || '');
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
+    const storedUserEmail = localStorage.getItem('userEmail'); // Recupera el email
     if (storedUserId) {
       setUserId(storedUserId);
-      setIsLoggedIn(true); // Asegúrate de que isLoggedIn se actualice si hay un userId
+      setIsLoggedIn(true);
+      if (storedUserEmail) {
+        setUserEmail(storedUserEmail); // Asegúrate de restaurar el email
+      }
     }
   }, []);
 
