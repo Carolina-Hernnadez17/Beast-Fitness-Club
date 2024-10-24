@@ -12,7 +12,7 @@ const Home = () => {
         <Col md={12} className="text-center">
           <img src={logo} className="App-logo img-fluid mb-3" alt="logo" style={{ width: '550px' }} />
           <BeastFitnessClub />
-          <VideoGallery />
+          <VideoGallery className="img-fluid mb-4" /> 
         </Col>
       </Row>
       <Container className="home-page-container py-5">
@@ -21,8 +21,7 @@ const Home = () => {
             <div>
               <h2 className="home-page-title">Planificación de Rutinas</h2>
               <p className="home-page-text">Desarrolla una rutina de ejercicios personalizada para alcanzar tus objetivos de fitness. ¡Mantente motivado y en forma!</p>
-              <Button className="home-page-button" href="/workout-planner">Comenzar</Button>
-              
+              <Button className="home-page-button btn-lg mb-3" href="/workout-planner">Comenzar</Button> {/* Botón más grande */}
             </div>
           </Col>
           <Col md={6}>
@@ -34,7 +33,7 @@ const Home = () => {
             <div>
               <h2 className="home-page-title">Seguimiento de Progreso</h2>
               <p className="home-page-text">Registra y observa tu progreso a medida que avanzas en tu camino hacia una vida más saludable.</p>
-              <Button className="home-page-button" href="/progress-tracking">Ver Progreso</Button>
+              <Button className="home-page-button btn-lg mb-3" href="/progress-tracking">Ver Progreso</Button> {/* Botón más grande */}
             </div>
           </Col>
           <Col md={6} className="order-md-1">
@@ -46,7 +45,7 @@ const Home = () => {
             <div>
               <h2 className="home-page-title">Sugerencias Personalizadas</h2>
               <p className="home-page-text">Recibe recomendaciones personalizadas para mejorar tu rutina de ejercicios y dieta basada en tus metas y preferencias.</p>
-              <Button className="home-page-button" href="/personalized-suggestions">Descubrir Más</Button>
+              <Button className="home-page-button btn-lg mb-3" href="/personalized-suggestions">Descubrir Más</Button> {/* Botón más grande */}
             </div>
           </Col>
           <Col md={6}>
@@ -58,7 +57,7 @@ const Home = () => {
             <div>
               <h2 className="home-page-title">Comunidad</h2>
               <p className="home-page-text">Únete a nuestra comunidad para compartir tus logros, recibir apoyo y conectarte con otros entusiastas del fitness.</p>
-              <Button className="home-page-button" href="/community">Unirse</Button>
+              <Button className="home-page-button btn-lg mb-3" href="/community">Unirse</Button> {/* Botón más grande */}
             </div>
           </Col>
           <Col md={6} className="order-md-1">

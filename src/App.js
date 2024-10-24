@@ -1,5 +1,4 @@
-import logo from './logo1.jpeg';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './componentes/Header';
@@ -21,14 +20,20 @@ import PersonalizedSuggestions from './componentes/PersonalizedSuggestions';
 import Community from './componentes/Community';
 import PlanDePerdidaDePeso from './componentes/PlanPerdidaDePeso';
 import NutricionDeportiva from './componentes/NutricionDeportiva';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario está logueado
+  const [userEmail, setUserEmail] = useState(''); // Estado para guardar el correo del usuario
+
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <Header />
+          <Header 
+            isLoggedIn={isLoggedIn} 
+            setIsLoggedIn={setIsLoggedIn} 
+            userEmail={userEmail} 
+          />
         </header>
         
         <main className="container my-4">
@@ -37,17 +42,17 @@ function App() {
             <Route path="/AcercaDe" element={<AcercaDe />} />
             <Route path="/Services" element={<Services />} />
             <Route path="/Inscripcion" element={<Inscripcion />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path='/Zumba' element={<Zumba />} />
-            <Route path='/Pilates' element={<Pilates />} />
-            <Route path='/Crossfit' element={<Crossfit />} />
-            <Route path='/Spinning' element={<Spinning />} />
-            <Route path= '/Contacatanos' element={<Contactanos/>} />
+            <Route path="/Login" element={<Login setIsLoggedIn={setIsLoggedIn} setUserEmail={setUserEmail} />} />
+            <Route path="/Zumba" element={<Zumba />} />
+            <Route path="/Pilates" element={<Pilates />} />
+            <Route path="/Crossfit" element={<Crossfit />} />
+            <Route path="/Spinning" element={<Spinning />} />
+            <Route path="/Contacatanos" element={<Contactanos />} />
             <Route path="/workout-planner" element={<WorkoutPlanner />} />
             <Route path="/progress-tracking" element={<ProgressTracking />} />
             <Route path="/personalized-suggestions" element={<PersonalizedSuggestions />} />
             <Route path="/community" element={<Community />} />
-            <Route path="NutricionDeportiva" element={<NutricionDeportiva/>} />
+            <Route path="/NutricionDeportiva" element={<NutricionDeportiva />} />
             <Route path="/PlanDePerdidaDePeso" element={<PlanDePerdidaDePeso />} />
           </Routes>
         </main>

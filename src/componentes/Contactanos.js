@@ -46,32 +46,6 @@ const Contactanos = () => {
           </Col>
       </Row>
 
-      <Row className="contactanos-form-section py-5">
-        <Col md={12}>
-          <h3 className="contactanos-subtitle text-center">Formulario de Consulta</h3>
-          <Form className="contactanos-form">
-            <Form.Group controlId="formName" className="mb-3">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" placeholder="Ingresa tu nombre" className="contactanos-form-control" />
-            </Form.Group>
-
-            <Form.Group controlId="formEmail" className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Ingresa tu email" className="contactanos-form-control" />
-            </Form.Group>
-
-            <Form.Group controlId="formMessage" className="mb-3">
-              <Form.Label>Mensaje</Form.Label>
-              <Form.Control as="textarea" rows={4} placeholder="Ingresa tu mensaje" className="contactanos-form-control" />
-            </Form.Group>
-
-            <Button type="submit" className="contactanos-button btn-block acerca-de-button">
-              Enviar
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-
       <div className="formulario">
         <FormularioContacto />
       </div>

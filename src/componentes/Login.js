@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../logo1.jpeg';
 
-function Login() {
+function Login({ setIsLoggedIn, setUserEmail }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -23,7 +23,10 @@ function Login() {
       const data = await response.json();
       alert('Login exitoso');
       console.log('Datos del usuario:', data);
-      navigate('/');  // Redirige a la página de inicio (Home)
+
+      setIsLoggedIn(true); // Cambiar el estado de inicio de sesión
+      setUserEmail(email); // Guardar el correo del usuario
+      navigate('/'); // Redirige a la página de inicio (Home)
     } else {
       alert('Error en el login');
     }
@@ -70,3 +73,7 @@ function Login() {
 }
 
 export default Login;
+
+
+
+

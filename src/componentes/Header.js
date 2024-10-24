@@ -1,8 +1,16 @@
-import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Nav, Container, Button, Modal } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa'; // Asegúrate de que esto esté instalado
 
-const Header = () => {
+const Header = ({ isLoggedIn, setIsLoggedIn, userEmail }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setShowModal(false);
+  };
+
   return (
     <Navbar expand="lg" className="header-navbar">
       <Container>
@@ -17,10 +25,33 @@ const Header = () => {
             <NavLink to="/Services" className="header-link nav-link">Servicios</NavLink>
             <NavLink to="/Inscripcion" className="header-link nav-link">Inscripción</NavLink>
             <NavLink to="/Contacatanos" className="header-link nav-link">Contáctanos</NavLink>
-            <Button className="login-button" href="/Login">Login</Button>
+
+            {isLoggedIn ? (
+              <>
+                <Button variant="link" onClick={() => setShowModal(true)} className="nav-link">
+                  <FaUser className="user-icon" style={{ fontSize: '24px' }} /> {/* Ícono de usuario más grande */}
+                </Button>
+              </>
+            ) : (
+              <Button className="login-button" href="/Login">Login</Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
+
+      {/* Modal para el usuario */}
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>{userEmail}</Modal.Title> {/* Muestra el correo del usuario en el título */}
+        </Modal.Header>
+        <Modal.Body>
+          {/* Aquí puedes agregar cualquier otro detalle si lo deseas */}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleLogout}>Cerrar Sesión</Button>
+          <Button variant="primary" as={NavLink} to="/">Ir a Inicio</Button>
+        </Modal.Footer>
+      </Modal>
     </Navbar>
   );
 };
