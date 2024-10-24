@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Form, Accordion } from 'react-bootstrap';
+import FormularioContacto from './FormularioContacto'; 
 import logo from '../logo1_nobg.png'; 
 
 const Contactanos = () => {
@@ -70,6 +71,11 @@ const Contactanos = () => {
           </Form>
         </Col>
       </Row>
+
+      <div className="formulario">
+        <FormularioContacto />
+      </div>
+
       <Row className="contactanos-faq-section py-5">
         <Col md={12}>
           <h3 className="contactanos-subtitle text-center">Preguntas Frecuentes</h3>

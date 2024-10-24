@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GymTariffs from './GymTariffs';
 import { Container, Row, Col, Form, Button, Card, Modal, InputGroup } from 'react-bootstrap';
-import emailjs from 'emailjs-com'; // Importar EmailJS
+import emailjs from 'emailjs-com'; 
 
 function Inscripcion() {
   const [nombre, setNombre] = useState('');
@@ -31,7 +31,7 @@ function Inscripcion() {
     return nombre && isEmailValid(email) && isPhoneValid(telefono) && isPasswordValid(password);
   };
 
-  const handlePayment = (e) => {
+  const handlePayment = async (e) => {
     e.preventDefault();
     const currentDate = new Date();
     const [year, month] = cardDate.split('-');
@@ -44,9 +44,42 @@ function Inscripcion() {
       setErrorMessage('El CVC debe tener 3 dígitos.');
     } else {
       setErrorMessage('');
+      
+      // Enviar datos al servidor
+      await enviarDatosInscripcion();
+
       alert('¡Gracias por suscribirte a Beast Fitness Club!');
       enviarFactura();  
       handleClose(); 
+    }
+  };
+
+  // Función para enviar datos de inscripción al servidor
+  const enviarDatosInscripcion = async () => {
+    const usuario = {
+      nombre,
+      email,
+      telefono,
+      password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/inscripcion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(usuario),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error en la inscripción');
+      }
+
+      console.log('Inscripción exitosa:', await response.text());
+    } catch (error) {
+      console.error('Error al enviar datos:', error);
+      setErrorMessage('No se pudo registrar al usuario. Intenta nuevamente.');
     }
   };
 
