@@ -1,19 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Table, ProgressBar } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
-const ProgressTracking = () => {
+const ProgressTracking = ({ userId }) => {
   const [date, setDate] = useState('');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [goal, setGoal] = useState('');
   const [progress, setProgress] = useState([]);
 
-  const addProgress = () => {
-    setProgress([...progress, { date, weight }]);
-    setDate('');
-    setWeight('');
+  useEffect(() => {
+    const fetchProgress = async () => {
+      if (userId) {
+        const response = await fetch('http://localhost:5000/get-progress', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Asegúrate de que las fechas y pesos estén en el formato correcto
+          const formattedData = data.map(item => ({
+            date: item.Date, // Asegúrate de que el campo coincida con tu base de datos
+            weight: parseFloat(item.Weight), // Convierte a número
+          }));
+          setProgress(formattedData); // Actualiza el estado con los datos formateados
+        } else {
+          alert('Error al cargar el progreso');
+        }
+      }
+    };
+
+    fetchProgress();
+  }, [userId]);
+
+  const addProgress = async () => {
+    const response = await fetch('http://localhost:5000/add-progress', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, date, weight }),
+    });
+
+    if (response.ok) {
+      const newProgress = { date, weight: parseFloat(weight) };
+      setProgress(prev => [...prev, newProgress]); // Actualiza el estado
+      setDate('');
+      setWeight('');
+    } else {
+      alert('Error al agregar progreso');
+    }
   };
 
   const calculateBMI = () => {
@@ -70,7 +111,14 @@ const ProgressTracking = () => {
             onChange={(e) => setHeight(e.target.value)} 
           />
         </Form.Group>
-        <Button variant="success" style={{ backgroundColor: '#52BF04', borderColor: '#52BF04', color: 'white' }}  onClick={addProgress} className="mt-3">Agregar Progreso</Button>
+        <Button 
+          variant="success" 
+          style={{ backgroundColor: '#52BF04', borderColor: '#52BF04', color: 'white' }} 
+          onClick={addProgress} 
+          className="mt-3"
+        >
+          Agregar Progreso
+        </Button>
       </Form>
 
       <h3 className="mt-5">Tu IMC: {calculateBMI()}</h3>

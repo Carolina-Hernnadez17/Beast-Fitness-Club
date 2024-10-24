@@ -1,9 +1,9 @@
-import React, { useState } from 'react'; // Importa useState
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../logo1.jpeg'; // Asegúrate de que la ruta sea correcta
+import logo from '../logo1.jpeg';
 
-function Login({ setIsLoggedIn, setUserEmail }) { // Asegúrate de recibir setUserEmail como prop
+function Login({ setIsLoggedIn, setUserEmail, setUserId }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -23,10 +23,11 @@ function Login({ setIsLoggedIn, setUserEmail }) { // Asegúrate de recibir setUs
       const data = await response.json();
       alert('Login exitoso');
       console.log('Datos del usuario:', data);
-
       setIsLoggedIn(true); // Establece el estado de autenticación como true
       setUserEmail(email); // Guardar el correo del usuario
-      navigate('/');  // Redirige a la página de inicio (Home)
+      setUserId(data.userId); // Guarda el ID del usuario
+      localStorage.setItem('userId', data.userId); // Guarda el ID en localStorage
+      navigate('/'); // Redirige a la página de inicio
     } else {
       alert('Error en el login');
     }
@@ -73,6 +74,5 @@ function Login({ setIsLoggedIn, setUserEmail }) { // Asegúrate de recibir setUs
 }
 
 export default Login;
-
 
 

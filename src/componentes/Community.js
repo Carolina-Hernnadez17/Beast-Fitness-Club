@@ -1,54 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, ListGroup, Badge, Modal } from 'react-bootstrap';
-import axios from 'axios';
 
-const Community = () => {
+const Community = ({ userId }) => {
   const [post, setPost] = useState('');
   const [posts, setPosts] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [showCommentModal, setShowCommentModal] = useState(false);
   const [currentPostIndex, setCurrentPostIndex] = useState(null);
 
-  // Función para obtener publicaciones desde el backend
-  const fetchPosts = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/posts'); // Cambia la URL según tu configuración
-      setPosts(response.data);
-    } catch (error) {
-      console.error('Error al obtener las publicaciones:', error);
-    }
-  };
-
   useEffect(() => {
-    fetchPosts(); // Obtener las publicaciones al montar el componente
+    // Cargar los posts desde la base de datos
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/community', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await response.json();
+        setPosts(data);
+      } catch (err) {
+        console.error('Error al obtener las publicaciones', err);
+      }
+    };
+    fetchPosts();
   }, []);
 
   const addPost = async () => {
     if (post) {
       try {
-        const response = await axios.post('http://localhost:5000/posts', {
-          text: post,
-          user: 'Usuario Anónimo',
+        await fetch('http://localhost:5000/add-post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId, content: post }),
         });
-        setPosts([...posts, response.data]); // Agregar la nueva publicación
         setPost('');
-      } catch (error) {
-        console.error('Error al agregar la publicación:', error);
+        // Volver a cargar las publicaciones después de agregar una nueva
+        const response = await fetch('http://localhost:5000/community', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await response.json();
+        setPosts(data);
+      } catch (err) {
+        console.error('Error al agregar publicación', err);
       }
     } else {
       alert('Debes escribir algo para publicar.');
     }
   };
 
-  const addLike = async (index) => {
-    const postId = posts[index].PostID;
+  const addLike = async (postId, index) => {
     try {
-      const response = await axios.put('http://localhost:5000/posts/${postId}/like');
+      await fetch('http://localhost:5000/like-post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postId }),
+      });
       const newPosts = [...posts];
-      newPosts[index] = response.data; // Actualizar la publicación con los nuevos datos
+      newPosts[index].likes += 1; // Incrementa el contador de likes en el estado local
       setPosts(newPosts);
-    } catch (error) {
-      console.error('Error al dar like:', error);
+    } catch (err) {
+      console.error('Error al dar like', err);
     }
   };
 
@@ -59,19 +79,22 @@ const Community = () => {
 
   const addComment = async () => {
     if (newComment) {
-      const postId = posts[currentPostIndex].PostID;
       try {
-        const response = await axios.post('http://localhost:5000/posts/${postId}/comments', {
-          text: newComment,
-          user: 'Usuario Anónimo',
+        const postId = posts[currentPostIndex].postId; // Cambiar 'PostId' por 'postId'
+        await fetch('http://localhost:5000/add-comment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ postId, userId, content: newComment }), // Cambiar 'text' por 'content'
         });
-        const newPosts = [...posts];
-        newPosts[currentPostIndex].comments.push(response.data); // Agregar el nuevo comentario
-        setPosts(newPosts);
+        const updatedPosts = [...posts];
+        updatedPosts[currentPostIndex].comments.push({ user: 'AAAAA', content: newComment }); // Cambiar 'text' por 'content'
+        setPosts(updatedPosts);
         setNewComment('');
         setShowCommentModal(false);
-      } catch (error) {
-        console.error('Error al agregar el comentario:', error);
+      } catch (err) {
+        console.error('Error al agregar comentario', err);
       }
     } else {
       alert('Debes escribir un comentario.');
@@ -114,15 +137,15 @@ const Community = () => {
       <ListGroup>
         {posts.length > 0 ? (
           posts.map((p, index) => (
-            <ListGroup.Item key={p.PostID}>
-              <strong>{p.User}</strong>: {p.Text}
+            <ListGroup.Item key={p.postId}> {/* Cambiar key a p.postId */}
+              <strong>{p.userName}</strong>: {p.content} {/* Cambiar a p.content */}
               <div className="mt-2">
                 <Button 
                   variant="success" 
                   style={{ backgroundColor: '#52BF04', borderColor: '#52BF04', color: '#fff' }} 
-                  onClick={() => addLike(index)}
+                  onClick={() => addLike(p.postId, index)} // Cambiar a p.postId
                 >
-                  Me gusta <Badge bg="light" text="dark" className="ms-2">{p.Likes}</Badge>
+                  Me gusta <Badge bg="light" text="dark" className="ms-2">{p.likes}</Badge>
                 </Button>{' '}
                 <Button 
                   variant="success" 
@@ -131,11 +154,11 @@ const Community = () => {
                 >
                   Comentar
                 </Button>
-                {p.Comments && p.Comments.length > 0 && (
+                {p.comments.length > 0 && (
                   <ListGroup className="mt-2">
-                    {p.Comments.map((comment, i) => (
-                      <ListGroup.Item key={comment.CommentID} className="text-muted">
-                        <strong>{comment.User}</strong>: {comment.Text}
+                    {p.comments.map((comment, i) => (
+                      <ListGroup.Item key={i} className="text-muted">
+                        <strong>{comment.userName}</strong>: {comment.content} {/* Cambiar a comment.content */}
                       </ListGroup.Item>
                     ))}
                   </ListGroup>
@@ -180,3 +203,5 @@ const Community = () => {
 };
 
 export default Community;
+
+

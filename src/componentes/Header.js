@@ -9,6 +9,9 @@ const Header = ({ isLoggedIn, setIsLoggedIn, userEmail }) => {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setShowModal(false);
+    localStorage.removeItem('userId'); // Si guardaste el userId en localStorage
+    sessionStorage.removeItem('userId'); // O sessionStorage si es el caso
+    window.location.href = '/login'; // Redirige al login
   };
 
   return (
@@ -24,7 +27,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn, userEmail }) => {
             <NavLink to="/AcercaDe" className="header-link nav-link">Acerca de</NavLink>
             <NavLink to="/Services" className="header-link nav-link">Servicios</NavLink>
             <NavLink to="/Inscripcion" className="header-link nav-link">Inscripción</NavLink>
-            <NavLink to="/Contacatanos" className="header-link nav-link">Contáctanos</NavLink>
+            <NavLink to="/Contactanos" className="header-link nav-link">Contáctanos</NavLink>
 
             {isLoggedIn ? (
               <>
@@ -57,3 +60,4 @@ const Header = ({ isLoggedIn, setIsLoggedIn, userEmail }) => {
 };
 
 export default Header;
+

@@ -1,27 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button, Form, Row, Col, ListGroup } from 'react-bootstrap';
 import { jsPDF } from 'jspdf';
 
-const WorkoutPlanner = () => {
+const WorkoutPlanner = ({ userId }) => {
   const [exercise, setExercise] = useState('');
   const [reps, setReps] = useState('');
   const [time, setTime] = useState('');
   const [category, setCategory] = useState('');
   const [workouts, setWorkouts] = useState([]);
 
-  const addWorkout = () => {
-    setWorkouts([...workouts, { exercise, reps, time, category }]);
-    setExercise('');
-    setReps('');
-    setTime('');
-    setCategory('');
+  // Cargar rutinas al cargar el componente
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      if (userId) {
+        const response = await fetch('http://localhost:5000/get-workouts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId }),
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Fetched workouts: ', data); // Verificar los datos recibidos
+          setWorkouts(data);
+        }
+      }
+    };
+  
+    fetchWorkouts();
+  }, [userId]);
+
+  // Agregar ejercicio a la base de datos
+  const addWorkout = async () => {
+    const response = await fetch('http://localhost:5000/add-workout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, exercise, reps, time, category }),
+    });
+
+    if (response.ok) {
+      setWorkouts([...workouts, { exercise, reps, time, category }]);
+      setExercise('');
+      setReps('');
+      setTime('');
+      setCategory('');
+    } else {
+      alert('Error al agregar ejercicio');
+    }
   };
 
+  // Exportar a PDF
   const exportToPDF = () => {
     const doc = new jsPDF();
     doc.text('Mi Plan de Entrenamiento', 10, 10);
     workouts.forEach((workout, index) => {
-      doc.text(`${index + 1}. ${workout.exercise} - ${workout.reps} repeticiones - ${workout.time} minutos (${workout.category})`, 10, 20 + (index * 10));
+      doc.text(
+        `${index + 1}. ${workout.Exercise} - ${workout.Reps} repeticiones - ${workout.Time} minutos (${workout.Category})`,
+        10, 20 + (index * 10)
+      );
     });
     doc.save('rutina.pdf');
   };
@@ -87,7 +127,7 @@ const WorkoutPlanner = () => {
         <Button 
           style={{ backgroundColor: '#52BF04', borderColor: '#52BF04', color: 'white' }} 
           onClick={addWorkout} 
-          className="mt-3 mr-7"
+          className="mt-3"
         >
           Agregar Ejercicio
         </Button>
@@ -104,7 +144,7 @@ const WorkoutPlanner = () => {
       <ListGroup>
         {workouts.map((workout, index) => (
           <ListGroup.Item key={index}>
-            {workout.exercise} - {workout.reps} repeticiones - {workout.time} minutos ({workout.category})
+            {workout.Exercise} - {workout.Reps} repeticiones - {workout.Time} minutos ({workout.Category})
           </ListGroup.Item>
         ))}
       </ListGroup>
