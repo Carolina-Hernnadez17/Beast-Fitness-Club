@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GymTariffs from './GymTariffs';
+import Login from './Login';
 import { Container, Row, Col, Form, Button, Card, Modal, InputGroup } from 'react-bootstrap';
 import emailjs from 'emailjs-com'; 
 
@@ -155,26 +156,26 @@ function Inscripcion() {
                           {/* Opciones de código de país */}
                           <option value="+1">+1 (Estados Unidos/Canadá)</option>
                           <option value="+52">+52 (México)</option>
-                        <option value="+44">+44 (Reino Unido)</option>
-                        <option value="+34">+34 (España)</option>
-                        <option value="+502">+502 (Guatemala)</option>
-                        <option value="+503">+503 (El Salvador)</option>
-                        <option value="+54">+54 (Argentina)</option>
-                        <option value="+55">+55 (Brasil)</option>
-                        <option value="+57">+57 (Colombia)</option>
-                        <option value="+56">+56 (Chile)</option>
-                        <option value="+51">+51 (Perú)</option>
-                        <option value="+58">+58 (Venezuela)</option>
-                        <option value="+91">+91 (India)</option>
-                        <option value="+81">+81 (Japón)</option>
-                        <option value="+61">+61 (Australia)</option>
-                        <option value="+64">+64 (Nueva Zelanda)</option>
-                        <option value="+33">+33 (Francia)</option>
-                        <option value="+49">+49 (Alemania)</option>
-                        <option value="+39">+39 (Italia)</option>
-                        <option value="+86">+86 (China)</option>
-                        <option value="+82">+82 (Corea del Sur)</option>
-                        <option value="+7">+7 (Rusia)</option>
+                          <option value="+44">+44 (Reino Unido)</option>
+                          <option value="+34">+34 (España)</option>
+                          <option value="+502">+502 (Guatemala)</option>
+                          <option value="+503">+503 (El Salvador)</option>
+                          <option value="+54">+54 (Argentina)</option>
+                          <option value="+55">+55 (Brasil)</option>
+                          <option value="+57">+57 (Colombia)</option>
+                          <option value="+56">+56 (Chile)</option>
+                          <option value="+51">+51 (Perú)</option>
+                          <option value="+58">+58 (Venezuela)</option>
+                          <option value="+91">+91 (India)</option>
+                          <option value="+81">+81 (Japón)</option>
+                          <option value="+61">+61 (Australia)</option>
+                          <option value="+64">+64 (Nueva Zelanda)</option>
+                          <option value="+33">+33 (Francia)</option>
+                          <option value="+49">+49 (Alemania)</option>
+                          <option value="+39">+39 (Italia)</option>
+                          <option value="+86">+86 (China)</option>
+                          <option value="+82">+82 (Corea del Sur)</option>
+                          <option value="+7">+7 (Rusia)</option>
                         </Form.Select>
                       </InputGroup.Text>
                       <Form.Control
@@ -211,13 +212,17 @@ function Inscripcion() {
 
                   <Button
                     type="button"
-                    className="inscripcion-button mt-4"
+                    className="home-page-button inscripcion-button mt-4"
                     onClick={handleShow}
                     disabled={!isFormValid()}
                   >
                     Inscribirme
                   </Button>
                 </Form>
+
+                {/* Etiquetas adicionales */}
+                <p className="mt-3">¿Ya estás inscrito?</p>
+                <p><a href="/Login">Inicia sesión</a></p>
               </Card.Body>
             </Card>
           </Col>
@@ -266,7 +271,7 @@ function Inscripcion() {
                 />
               </Form.Group>
               {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
-              <Button type="submit" className="mt-4 w-100">
+              <Button type="submit" className=" home-page-button mt-4 w-100">
                 Confirmar Pago
               </Button>
             </Form>
@@ -278,4 +283,3 @@ function Inscripcion() {
 }
 
 export default Inscripcion;
-
